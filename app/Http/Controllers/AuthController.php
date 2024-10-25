@@ -60,4 +60,16 @@ class AuthController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function forgotPassword(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        // Send the reset link to the user's email
+        $response = Password::sendResetLink($request->only('email'));
+
+        return $response === Password::RESET_LINK_SENT
+            ? response()->json(['success' => true, 'message' => 'Reset link sent to your email.'])
+            : response()->json(['success' => false, 'message' => 'Unable to send reset link.'], 500);
+    }
 }
