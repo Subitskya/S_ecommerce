@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -59,17 +59,5 @@ class AuthController extends Controller
             'token' => $token,
             'user' => $user,
         ]);
-    }
-
-    public function forgotPassword(Request $request)
-    {
-        $request->validate(['email' => 'required|email']);
-
-        // Send the reset link to the user's email
-        $response = Password::sendResetLink($request->only('email'));
-
-        return $response === Password::RESET_LINK_SENT
-            ? response()->json(['success' => true, 'message' => 'Reset link sent to your email.'])
-            : response()->json(['success' => false, 'message' => 'Unable to send reset link.'], 500);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
@@ -22,7 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+
+Route::middleware('throttle:10,1')->group(function () {
+    Route::post('password/email', [PasswordResetController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::post('password/reset', [PasswordResetController::class, 'resetPassword'])->name('password.reset');
+});
 
 Route::get('/properties', [PropertyController::class, 'index']);
 Route::post('/properties', [PropertyController::class, 'store']);
