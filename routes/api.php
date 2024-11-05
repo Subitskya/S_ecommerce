@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AuthController;
@@ -28,6 +29,12 @@ Route::middleware('throttle:10,1')->group(function () {
     Route::post('password/email', [PasswordResetController::class, 'sendResetLinkEmail'])->name('password.email');
     Route::post('password/reset', [PasswordResetController::class, 'resetPassword'])->name('password.reset');
 });
+
+//New Forget Password
+Route::post('/forget-password', [ForgotPasswordController::class,'forgetPassword']);
+Route::get('/reset-password/{token}', [ForgotPasswordController::class,'resetPassword'])->name('reset.password');
+Route::post('/reset-password', [ForgotPasswordController::class,'resetPasswordSubmit'])->name('reset.password.submit');
+//New Forget Password
 
 Route::get('/properties', [PropertyController::class, 'index']);
 Route::post('/properties', [PropertyController::class, 'store']);
