@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        JeroenNoten\LaravelAdminLte\AdminLteServiceProvider::class,
 
         /*
          * Application Service Providers...

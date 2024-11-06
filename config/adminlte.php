@@ -299,6 +299,16 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
+        ],
+        [
+            'text' => 'Users',
+            'url'  => 'admin',
+            'icon' => 'fas fa-fw fa-users',
+        ],
         // Navbar items:
         [
             'type' => 'navbar-search',
@@ -320,13 +330,13 @@ return [
             'url' => 'admin/blog',
             'can' => 'manage-blog',
         ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
+        // [
+        //     'text' => 'pages',
+        //     'url' => 'admin/pages',
+        //     'icon' => 'far fa-fw fa-file',
+        //     'label' => 4,
+        //     'label_color' => 'success',
+        // ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
