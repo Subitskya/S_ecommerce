@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Dhukuti',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Dhukuti</b>',
+    'logo_img' => 'dhukuti_logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -300,11 +300,6 @@ return [
 
     'menu' => [
         [
-            'text' => 'Dashboard',
-            'url'  => 'admin',
-            'icon' => 'fas fa-fw fa-tachometer-alt',
-        ],
-        [
             'text' => 'Users',
             'url'  => 'admin',
             'icon' => 'fas fa-fw fa-users',
@@ -320,6 +315,24 @@ return [
             'icon' => 'fas fa-fw fa-bicycle',
         ],
         // Navbar items:
+        [
+            'text' => 'Users',
+            'url' => 'admin',
+            'topnav_right' => true,
+            'icon' => 'fas fa-fw fa-users', 
+        ],
+        [
+            'text' => 'Products', 
+            'url' => 'admin/products', 
+            'topnav_right' => true, 
+            'icon' => 'fas fa-fw fa-box',
+        ],
+        [
+            'text' => 'Riders',
+            'url' => 'admin/riders', 
+            'topnav_right' => true,
+            'icon' => 'fas fa-fw fa-bicycle', 
+        ],
         [
             'type' => 'navbar-search',
             'text' => 'search',
