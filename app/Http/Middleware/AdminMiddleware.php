@@ -18,6 +18,6 @@ class AdminMiddleware
         if (auth()->check() && auth()->user()->role === 'admin') {
             return $next($request);
         }
-        return redirect('/admin')->with('error', 'You do not have admin access.');
+        return redirect('/')->with('error', 'You do not have admin access.');
     }
 }

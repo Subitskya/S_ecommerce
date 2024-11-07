@@ -23,6 +23,11 @@ class AuthController extends Controller
 
     public function performLogin(Request $request)
     {
+        $emailVerify = User::where('email', $request->email)->first();
+        if (empty($emailVerify->email_verified_at)) {
+            return redirect()->route('login')->with('error', 'Verify your Email Address');
+        }
+
         $credentials = $request->only(['email', 'password']);
 
         if (!Auth::attempt($credentials)) {
