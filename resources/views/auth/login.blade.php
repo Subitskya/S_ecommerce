@@ -21,7 +21,7 @@
             New User? <a href="{{ url('/register') }}">Register</a>
         </span>
         <span class="float-end">
-            Forgot Password <a href="{{ url('/register') }}">Click Here</a>
+            Forgot Password <a href="{{ route('forgotPassword') }}">Click Here</a>
         </span>
 
     </form>
