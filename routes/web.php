@@ -23,6 +23,11 @@ Route::post('/login', [AuthController::class, 'performLogin']);
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'performRegister']);
 
+//Verify Email Address
+Route::get('/verify-email', [AuthController::class, 'verifyEmail'])->name('verifyEmail');
+Route::get('/verify-email/{token}', [AuthController::class, 'verifyMailToken'])->name('verifyMailToken');
+Route::post('/verify-email', [AuthController::class, 'performVerifyEmail'])->name('verifyEmail.perform');
+
 //Forgot Password
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
 Route::post('/forgot-password', [AuthController::class, 'performForgotPassword'])->name('forgotPassword.perform');
