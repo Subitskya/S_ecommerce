@@ -31,7 +31,7 @@ return [
     */
 
     'use_ico_only' => false,
-    'use_full_favicon' => false,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -319,19 +319,19 @@ return [
             'text' => 'Users',
             'url' => 'admin',
             'topnav_right' => true,
-            'icon' => 'fas fa-fw fa-users', 
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'Products', 
-            'url' => 'admin/products', 
-            'topnav_right' => true, 
+            'text' => 'Products',
+            'url' => 'admin/products',
+            'topnav_right' => true,
             'icon' => 'fas fa-fw fa-box',
         ],
         [
             'text' => 'Riders',
-            'url' => 'admin/riders', 
+            'url' => 'admin/riders',
             'topnav_right' => true,
-            'icon' => 'fas fa-fw fa-bicycle', 
+            'icon' => 'fas fa-fw fa-bicycle',
         ],
         [
             'type' => 'navbar-search',

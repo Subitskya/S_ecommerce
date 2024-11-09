@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\RiderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,4 +54,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/products/{product}/edit', [ProductsController::class, 'edit'])->name('admin.products.edit');
     Route::put('/products/{product}', [ProductsController::class, 'update'])->name('admin.products.update');
     Route::delete('/products/{product}', [ProductsController::class, 'destroy'])->name('admin.products.destroy');
+
+    //Riders
+    Route::resource('riders', RiderController::class);
 });
