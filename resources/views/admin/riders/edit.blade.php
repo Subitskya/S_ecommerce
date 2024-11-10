@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Edit User')
+@section('title', 'Edit Rider')
 
 @section('content_header')
 <h1>Edit Rider</h1>
@@ -37,7 +37,13 @@
                         <div class="form-group col-md-6">
                             <label for="profile_pic">Profile Pic</label>
                             <input type="file" class="form-control" id="profile_pic" name="profile_pic"
-                                value="{{old('profile_pic',$rider->profile_pic)}}">
+                                value="{{old('profile_pic',$rider->profile_pic)}}"
+                                onchange="getImagePreview(event,'profile_images_view')">
+                            @if($rider->profile_pic)
+                            <img src="{{ url('storage/'.$rider->profile_pic) }}" id="profile_images_view"
+                                alt="{{ $rider->firstname }}" style="width: 100px; height: 100px;padding:5px;">
+                            <!-- Display image -->
+                            @endif
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">DOB</label>
@@ -57,12 +63,24 @@
                         <div class="form-group col-md-6">
                             <label for="license_front">License Front Image</label>
                             <input type="file" class="form-control" id="license_front" name="license_front"
-                                value="{{old('license_front',$rider->license_front)}}">
+                                value="{{old('license_front',$rider->license_front)}}"
+                                onchange="getImagePreview(event,'license_front_images_view')">
+                            @if($rider->license_front)
+                            <img src="{{ url('storage/'.$rider->license_front) }}" id="license_front_images_view"
+                                alt="{{ $rider->firstname }}" style="width: 150px; height: auto; padding:5px;">
+                            <!-- Display image -->
+                            @endif
                         </div>
                         <div class="form-group col-md-6">
                             <label for="national_id">Nationa ID</label>
                             <input type="file" class="form-control" id="national_id" name="national_id"
-                                value="{{old('national_id',$rider->national_id)}}">
+                                value="{{old('national_id',$rider->national_id)}}"
+                                onchange="getImagePreview(event,'national_id_images_view')">
+                            @if($rider->national_id)
+                            <img src="{{ url('storage/'.$rider->national_id) }}" id="national_id_images_view"
+                                alt="{{ $rider->firstname }}" style="width: 150px; height: auto;padding:5px;">
+                            <!-- Display image -->
+                            @endif
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Update Rider</button>
@@ -71,4 +89,12 @@
         </div>
     </div>
 </div>
+<script>
+    function getImagePreview(event,divId){
+        var image = URL.createObjectURL(event.target.files[0]);
+        var imageDiv = document.getElementById(divId);
+
+        imageDiv.src = image;
+    }
+</script>
 @stop

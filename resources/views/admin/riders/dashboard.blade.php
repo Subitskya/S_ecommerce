@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Admin Dashboard')
+@section('title', 'Rider Dashboard')
 
 @section('content_header')
 <h1>Dashboard</h1>
@@ -55,7 +55,7 @@
                                 @endif
                             </td>
                             <td style="text-align: center; vertical-align:middle">
-                                @if($rider->license_front)
+                                @if($rider->national_id)
                                 <img src="{{ url('storage/'.$rider->national_id) }}" alt="{{ $rider->firstname }}"
                                     style="width: 100px; height: 75px;"> <!-- Display image -->
                                 @else
